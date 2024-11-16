@@ -91,8 +91,6 @@ print(post_ctr)
 print(user_ctr)``
 
 #### 5. **Calculate Mean Average Precision (MAP)**
-    - To calculate MAP for the recommendations, use the calculate_map(viewed_df, post_df, recommendations, k) function. For example:
-
 `recommendation = map_util(user_df, post_df, algo, 'do it now', top_n=5)
 map_score = calculate_map(viewed_df, post_df, recommendation, k=10)
 print(f"MAP Score: {map_score}")`
