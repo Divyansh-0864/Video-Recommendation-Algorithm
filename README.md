@@ -1,12 +1,12 @@
 # Video Recommendation System
----
+
 
 ## Objective
----
+
 Designing a recommendation algorithm that suggests videos based on user preferences and engagement patterns. The algorithm will deliver personalized video recommendations by leveraging user interaction data and video metadata obtained via provided APIs.
 
 ## Approach
----
+
 ### 1. **Content-Based Filtering**:
    - **Description**: The content-based filtering approach recommends videos similar to a given video based on its content (e.g., title, description, tags). This is done by transforming the video metadata into vectors using the **Count Vectorizer** and calculating the **Cosine Similarity** between videos.
    - **Steps**:
@@ -38,7 +38,7 @@ Designing a recommendation algorithm that suggests videos based on user preferen
    Using Memory Based Collaborative Filtering as in Model Based Approach the post recommended are not in viewed post which will lead the calculation nearer to zero 
 
 ## **Model Architecture**
----
+
 1. **Content-Based Filtering**
     - Text vectorization: `CountVectorizer`
     - Similarity measure: `Cosine Similarity`
@@ -54,7 +54,7 @@ Designing a recommendation algorithm that suggests videos based on user preferen
     - The hybrid model combines the results of SVD with content-based filtering. The model is designed to suggest posts that users are most likely to engage with based on similar users' behavior and content features.
     
 ## Challenges and Solutions
----
+
  1. **Cold Start Problem**
 **Challenge**: New users or new posts with no interaction history pose a challenge for the recommendation system.<br>
 **Solution**: The hybrid model helps mitigate the cold start problem. The content-based filtering component can still recommend new posts based on their metadata, even if there’s no interaction data available for a new user.
@@ -74,30 +74,22 @@ Designing a recommendation algorithm that suggests videos based on user preferen
 ## Usage
 
 #### 1. **Content-Based Recommendations**
-    - To get content-based recommendations for a specific video title, use the `content_based_recommend(video_title) function`. For example:
-`
-recommendations = content_based_recommend('Why fit in..?')
+`recommendations = content_based_recommend('Why fit in..?')
 print(recommendations)
 `
 #### 2. **Collaborative Filtering Recommendations**
-    - To get recommendations for a specific user, use the collaborative_recommendations(username, post_df, algo) function. For example:
-
 `recommendations = collaborative_recommendations('kinha', post_df, algo)
 print(recommendations)`
 
 #### 3. **Hybrid Recommendations**
-    - To combine content-based and collaborative filtering recommendations, use the hybrid_recommender(username, video_title, post_df, algo) function. Example usage:
-
 `recommendations = hybrid_recommender('kinha', 'do it now', post_df, algo)
 print(recommendations)`
 
 #### 4. **Calculate Click-Through Rate (CTR)**
-    - To calculate CTR for posts and users, use the calculate_ctr(user_df, viewed_df, post_df) function. For example:
-
-`post_ctr, user_ctr, detailed_ctr = calculate_ctr(user_df, viewed_df, post_df)
+``post_ctr, user_ctr, detailed_ctr = calculate_ctr(user_df, viewed_df, post_df)
 print(post_ctr)
-print(user_ctr)
-`
+print(user_ctr)``
+
 #### 5. **Calculate Mean Average Precision (MAP)**
     - To calculate MAP for the recommendations, use the calculate_map(viewed_df, post_df, recommendations, k) function. For example:
 
@@ -106,23 +98,13 @@ map_score = calculate_map(viewed_df, post_df, recommendation, k=10)
 print(f"MAP Score: {map_score}")`
 
 ## Results
-####**Click-Through Rate (CTR)**
+#### 1. **Click-Through Rate (CTR)**
     - After calculating the CTR, we will get the following results:
+        - CTR by Post: Displays the average CTR for each post, showing how often users interacted with a post after viewing it.
+        - CTR by User: Displays the average CTR for each user, indicating the overall interaction rate with recommended posts.
+        - Detailed CTR Shows detailed CTR calculations, including view counts, upvotes, comments, and exit counts.
 
-        1. **CTR by Post**: Displays the average CTR for each post, showing how often users interacted with a post after viewing it.
-        2. **CTR by User**: Displays the average CTR for each user, indicating the overall interaction rate with recommended posts.
-        3. **Detailed CTR**: Shows detailed CTR calculations, including view counts, upvotes, comments, and exit counts.
-Example output for CTR by Post:
-
-CTR by Post:
-    title                          CTR
-    ------------------------     -------
-    Video 1                       6.98
-    Video 2                       18.8
-    Video 3                       0.53
-    ...
-
-#### **Mean Average Precision (MAP)**
+#### 1. **Mean Average Precision (MAP)**
 The Mean Average Precision (MAP) metric is used to evaluate the quality of recommendations. It calculates the precision of the top-k recommended posts for each user based on how relevant they are to the user’s historical interactions.
 
 MAP Score: The final MAP score will give an overall measure of the recommendation system's precision. The higher the MAP score, the better the recommendations.
