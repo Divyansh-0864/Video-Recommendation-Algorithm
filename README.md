@@ -97,12 +97,12 @@ print(f"MAP Score: {map_score}")`
 
 ## Results
 #### 1. **Click-Through Rate (CTR)**
-    - After calculating the CTR, we will get the following results:
-        - CTR by Post: Displays the average CTR for each post, showing how often users interacted with a post after viewing it.
-        - CTR by User: Displays the average CTR for each user, indicating the overall interaction rate with recommended posts.
-        - Detailed CTR Shows detailed CTR calculations, including view counts, upvotes, comments, and exit counts.
+- After calculating the CTR, we will get the following results:
+    - CTR by Post: Displays the average CTR for each post, showing how often users interacted with a post after viewing it.
+    - CTR by User: Displays the average CTR for each user, indicating the overall interaction rate with recommended posts.
+    - Detailed CTR Shows detailed CTR calculations, including view counts, upvotes, comments, and exit counts.
 
-#### 1. **Mean Average Precision (MAP)**
+#### 2. **Mean Average Precision (MAP)**
 The Mean Average Precision (MAP) metric is used to evaluate the quality of recommendations. It calculates the precision of the top-k recommended posts for each user based on how relevant they are to the user’s historical interactions.
 
 MAP Score: The final MAP score will give an overall measure of the recommendation system's precision. The higher the MAP score, the better the recommendations.
